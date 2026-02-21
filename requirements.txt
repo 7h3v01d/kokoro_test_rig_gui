@@ -1,0 +1,7 @@
+# Core
+kokoro-onnx
+numpy
+matplotlib
+
+# Optional (speaker playback). Comment out if you only want WAV output.
+sounddevice
