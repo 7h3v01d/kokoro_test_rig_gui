@@ -10,6 +10,21 @@ It’s designed to quickly validate:
 - Basic level sanity checks (**RMS / Peak dBFS**)
 
 ---
+⚠️ **LICENSE & USAGE NOTICE — READ FIRST**
+
+This repository is **source-available for private technical evaluation and testing only**.
+
+- ❌ No commercial use  
+- ❌ No production use  
+- ❌ No academic, institutional, or government use  
+- ❌ No research, benchmarking, or publication  
+- ❌ No redistribution, sublicensing, or derivative works  
+- ❌ No independent development based on this code  
+
+All rights remain exclusively with the author.  
+Use of this software constitutes acceptance of the terms defined in **LICENSE.txt**.
+
+---------------------------------------------------------------------------------------------------
 
 ## Features
 
@@ -167,5 +182,27 @@ pip install -U matplotlib
 - Model + tooling ecosystem is provided by the Kokoro ONNX community and related upstream projects.
 - This GUI rig is a lightweight tester built around the `kokoro-onnx` Python interface.
 
+## Contribution Policy
+
+Feedback, bug reports, and suggestions are welcome.
+
+You may submit:
+
+- Issues
+- Design feedback
+- Pull requests for review
+
+However:
+
+- Contributions do not grant any license or ownership rights
+- The author retains full discretion over acceptance and future use
+- Contributors receive no rights to reuse, redistribute, or derive from this code
+
+---
+
 ## License
+This project is not open-source.
+
+It is licensed under a private evaluation-only license.
+See LICENSE.txt for full terms.
 
