@@ -169,5 +169,3 @@ pip install -U matplotlib
 
 ## License
 
-This test rig script is intended to be used alongside the upstream model/package licenses.
-If you publish this in a repo, consider adding your chosen license file (MIT/Apache-2.0/etc.) and verify compatibility with upstream dependencies.# kokoro_test_rig_gui
