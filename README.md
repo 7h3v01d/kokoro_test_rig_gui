@@ -21,13 +21,26 @@ It’s designed to quickly validate:
   - **Play to speakers** (requires `sounddevice`)
   - **Save WAV** (PCM16, no extra audio libs required)
 
+### Model File Handling (Built-In Downloader)
+- ⬇️ **Download model files inside the GUI**
+  - Downloads `kokoro-v1.0.onnx` + `voices-v1.0.bin`
+  - Uses streaming download + progress bars
+  - Writes to `*.part` then renames (reduces risk of partial/corrupt files)
+- ✅ **Startup check**
+  - If model/voices files are missing at the configured paths, the app prompts to download them automatically.
+
 ### Analysis / Preview
-- 📈 **Waveform viewer** (zoom by time range)
-- 🌈 **Spectrogram viewer** (tunable NFFT/overlap, includes “Auto params”)
+- 📈 **Waveform viewer**
+  - Zoom by time range (Start/End seconds)
+  - Reset to full clip
+- 🌈 **Spectrogram viewer**
+  - Configurable NFFT / overlap
+  - “Auto params” for quick speech-friendly settings
 - 🎯 **Cursor readout**
   - Waveform: time + amplitude
   - Spectrogram: time + frequency
-- 🔊 **RMS / Peak dBFS readout** + a simple RMS meter
+- 🔊 **RMS + Peak dBFS**
+  - Includes a simple RMS meter for quick level sanity checks
 
 ---
 
@@ -58,11 +71,23 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 ### Install deps
+
+```bash
+pip install -U -r requirements.txt
+```
+or
 ```bash
 pip install -U kokoro-onnx numpy matplotlib
 pip install -U sounddevice
 ```
 If you don’t install sounddevice, the app still works (WAV output + plots). Playback buttons will be disabled or will warn.
+
+### Run
+```bash
+python kokoro_test_rig_gui.py
+```
+On first launch, if the model files are missing, the rig will offer to download them.
+
 
 ## Model Files
 
@@ -71,32 +96,12 @@ Place these two files next to `kokoro_test_rig_gui.py` (or browse to them in the
 - `kokoro-v1.0.onnx`
 - `voices-v1.0.bin`
 
-#### Download (Windows PowerShell)
+### Recommended workflow
 
-PowerShell’s curl is an alias to Invoke-WebRequest, so use:
-```powershell
-Invoke-WebRequest `
-  -Uri "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx" `
-  -OutFile "kokoro-v1.0.onnx"
+1. Launch the GUI
+2. Accept the startup download prompt (or click Download model files…)
+3. Generate speech and validate output/plots
 
-```
-```powershell
-Invoke-WebRequest `
-  -Uri "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin" `
-  -OutFile "voices-v1.0.bin"
-```
-### Download (real curl on Windows)
-
-If you have the actual curl binary:
-```powershell
-curl.exe -L -o kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
-curl.exe -L -o voices-v1.0.bin  https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
-```
-### Run
-```bash
-python kokoro_test_rig_gui.py
-```
-On first run, verify the GUI shows your model/voices paths correctly (defaults assume they are beside the script).
 
 ## Usage Notes
 ### Output Modes
