@@ -128,30 +128,28 @@ On first run, verify the GUI shows your model/voices paths correctly (defaults a
     - ~-60 dBFS → 0%
     - 0 dBFS → 100%
 
-Troubleshooting
-“Model not found” / “Voices not found”
+## Troubleshooting
+### “Model not found” / “Voices not found”
 
-Make sure:
+- Use Download model files… in the GUI
+- Or use Browse… buttons to select the files manually
 
-- The files exist
-- Paths are correct
-- You selected the correct `.onnx` and `.bin`
+### Playback not working
 
-### No audio playback
-
-- Install `sounddevice`:
+- Install sounddevice:
 ```bash
 pip install sounddevice
 ```
-- On Windows, you may also need a working audio backend. If playback still fails, use Save WAV and play the file in a standard media player.
+- If playback still fails, use Save WAV and play the output using a standard media player.
 
 ### Matplotlib/Tk errors
 
-- Ensure you installed matplotlib and your Python includes Tk support.
-- Reinstall:
+- Ensure matplotlib is installed:
 ```bash
 pip install -U matplotlib
 ```
+- Some minimal Python installs may not include Tk; use a standard Python distribution that includes Tk support.
+  
 ### Project Layout (minimal)
 ```code
 .
