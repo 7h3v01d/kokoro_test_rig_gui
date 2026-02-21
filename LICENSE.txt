@@ -1,4 +1,3 @@
-<Project Name> <Version>
 Private Evaluation & Testing License (PETL) v1.0
 
 CANONICAL TEXT
